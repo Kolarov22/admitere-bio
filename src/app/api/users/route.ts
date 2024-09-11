@@ -10,7 +10,7 @@ export async function POST(req: Request){
 
         const checkExistingEmail = await prisma.user.findUnique({
             where: {
-                email: email
+                email
             }
         });
 
@@ -35,6 +35,6 @@ export async function POST(req: Request){
 
 
     } catch (error) {
-        
+        return NextResponse.json({error: "Internal server error"}, {status: 500})   
     }
 }

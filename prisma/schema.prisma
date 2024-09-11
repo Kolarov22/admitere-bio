@@ -19,11 +19,39 @@ model User {
   role          String?
   accounts      Account[]
   sessions      Session[]
+  courses   CourseEnrollment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("users")
+}
+
+model Course {
+
+  id          Int   @id @default(autoincrement())
+  title       String
+  description String
+  image       String? @default("")
+  price       Float
+  users       CourseEnrollment[]
+
+  createdAt   DateTime @default(now())
+
+
+
+  @@map("courses")
+}
+
+model CourseEnrollment {
+  userId   String
+  courseId Int
+
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@id([userId, courseId])
+  @@map("course_enrollments")
 }
 
 model Account {

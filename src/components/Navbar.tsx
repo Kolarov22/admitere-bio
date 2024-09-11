@@ -20,6 +20,7 @@ import {
 const Navbar = async () => {
   const session = await auth();
   const user = session?.user;
+  
 
   const SignInButton = () => {
     return (
@@ -39,14 +40,19 @@ const Navbar = async () => {
                 <Link href='/'>Home</Link>
             </Button>
 
-            <Button asChild variant="link" className='text-gray-200'>
-                <Link href="/courses">Courses</Link>
-            </Button>
 
             {
-                user ? (<> <Button asChild variant="link" className='text-gray-200'>
+            user ? (<> 
+
+            <Button asChild variant="link" className='text-gray-200'>
+                <Link href="/my-courses">Your courses</Link>
+            </Button>
+
+            <Button asChild variant="link" className='text-gray-200'>
                 <Link href="/cart">Cart</Link>
             </Button>
+
+            
 
             <DropdownMenu>
                 <DropdownMenuTrigger>
@@ -72,7 +78,13 @@ const Navbar = async () => {
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
                 </DropdownMenuContent>
-            </DropdownMenu> </>) : <SignInButton />
+            </DropdownMenu> </>) : (
+            <>
+                <Button asChild variant="link" className='text-gray-200'>
+                 <Link href="/courses">Courses</Link>
+                </Button>  
+                <SignInButton />
+            </>)
             }
 
         </div>

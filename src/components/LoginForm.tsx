@@ -73,7 +73,7 @@ const LoginForm = () => {
   
     return (
         <div className="flex flex-col justify-center items-center drop-shadow">
-            <Card className="w-[500px] p-8">
+            <Card className="max-w-[500px] p-8 w-full">
                 <CardHeader className="text-center font-bold text-xl pb-12">Login Form</CardHeader>
                 <CardContent> 
                     <Form {...form}>

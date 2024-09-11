@@ -13,29 +13,22 @@ import {
 
 import { Button } from './ui/button'
 
-interface CourseCardProps {
-  course:{
-    id: string,
-    title: string, 
-    description: string,
-    price: number
-  }
-}
+import { Course } from '@/types'
 
 
-const CourseCard = ({course}:CourseCardProps) => {
+const CourseCard = (course : Course) => {
   return (
-    <Card className='max-w-[500px] mx-auto drop-shadow'>
+    <Card className='max-w-[700px] min-w-[300px] drop-shadow py-5'>
         <CardHeader>
-            <CardTitle className='text-center'>{course.title}</CardTitle>
+            <CardTitle className='text-center text-3xl uppercase'>{course.title}</CardTitle>
         </CardHeader>
 
-        <CardContent className='break-all'>
+        <CardContent className='text-center'>
             <p>{course.description}</p>
         </CardContent>
 
-        <CardFooter className='flex items-center justify-center gap-10'>
-            <span className='font-extrabold'>{course.price}</span>
+        <CardFooter className='flex items-center justify-center gap-10 mt-5'>
+            <span className='font-extrabold'>${course.price}</span>
             <Button asChild className='bg-slate-800 hover:bg-slate-950 text-white' ><Link href={`/courses/${course.id}`}>See more</Link></Button>
         </CardFooter>
     </Card>

@@ -1,16 +1,11 @@
 import {create} from 'zustand';
+import { Course } from '@/types';
 
-interface Product {
-    id: string;
-    title: string;
-    price: number;
-    description: string;
-}
 
 interface CartState {
-    cart: Product[];
-    addToCart: (product: Product) => void;
-    removeFromCart: (product: Product) => void;
+    cart: Course[];
+    addToCart: (product: Course) => void;
+    removeFromCart: (product: Course) => void;
 }
 
 export const useCartStore = create<CartState>((set) => ({

@@ -62,65 +62,81 @@ const RegisterForm = () => {
 
   return (
     <div className="flex flex-col justify-center items-center drop-shadow mt-20">
-            <Card className="w-[500px] p-8">
-                <CardHeader className="text-center font-bold text-xl pb-12">Register Form</CardHeader>
-                <CardContent> 
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex flex-col">
-                            <FormField
-                                control={form.control}
-                                name="email"
-                                render={({ field }) => (
-                                    <FormItem>
-                                    <FormControl>
-                                        <Input placeholder="email" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+      <Card className="max-w-[500px] p-8 w-full">
+        <CardHeader className="text-center font-bold text-xl pb-12">
+          Register Form
+        </CardHeader>
+        <CardContent>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-6 flex flex-col"
+            >
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input placeholder="email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-                            <FormField
-                                control={form.control}
-                                name="username"
-                                render={({ field }) => (
-                                    <FormItem>
-                                    <FormControl>
-                                        <Input placeholder="username" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input placeholder="username" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-                            <FormField
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                                <FormItem>
-                                <FormControl>
-                                    <Input type="password" placeholder="password" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                                </FormItem>
-                            )}
-                            />
-                            
-                            <Button className="self-center bg-slate-900 hover:bg-slate-800 w-full  mt-5" type="submit">Register</Button>
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-                            <FormError message={error}></FormError>
-                        </form>
-                        
-                    
-                    </Form>
+              <Button
+                className="self-center bg-slate-900 hover:bg-slate-800 w-full mt-5"
+                type="submit"
+              >
+                Register
+              </Button>
 
-                    <GoogleLogin/>
-                </CardContent>
-                <Link className="text-sm p-4 flex justify-end" href="/login">Already have an account?
-                 Click to log in.</Link>
-            </Card>
-        </div>
-  )
+              <FormError message={error}></FormError>
+            </form>
+          </Form>
+
+          <GoogleLogin />
+        </CardContent>
+        <Link
+          className="text-sm p-4 flex justify-end hover:underline"
+          href="/login"
+        >
+          Already have an account? Click to log in.
+        </Link>
+      </Card>
+    </div>
+  );
 }
 
 export default RegisterForm
