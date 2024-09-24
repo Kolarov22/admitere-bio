@@ -23,7 +23,9 @@ export async function GET(req: Request){
     }
 }
 
-export async function POST(req: Request){
+//not in use, only for testing purposes
+
+/* export async function POST(req: Request){
     try {
         const body = await req.json()
         const { title, description, price, image } = body;
@@ -41,4 +43,4 @@ export async function POST(req: Request){
         console.error('Error fetching courses:', error); // Log the error for debugging
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
-}
+} */

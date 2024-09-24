@@ -8,7 +8,8 @@ const getCourses = async () => {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        cache: 'no-cache',
     })
     const data = await response.json()
     return data
