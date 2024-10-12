@@ -12,6 +12,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
   
   callbacks: {
+    authorized: async ({auth}) => {
+       return !!auth
+    },
     session: async ({ session, token }) => {
       if (session?.user) {
         session.user.id = token.sub!;

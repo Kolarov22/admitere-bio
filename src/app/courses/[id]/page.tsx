@@ -86,7 +86,7 @@ const CoursePage = ({params} : CoursePageProps) => {
         </div>
         <div className='container flex flex-col justify-center items-center bg-gray-200 text-black gap-3 py-5'>
           <h2 className='text-2xl font-bold'>Preview the PDF</h2>
-          <iframe src="/assets/sdm1.pdf" frameBorder={0} width={600} height={750}className='border-0 container'></iframe>
+          <iframe src="/sdm1.pdf" frameBorder={0} width={600} height={750}className='border-0 container'></iframe>
         </div>
     </section>
   )
